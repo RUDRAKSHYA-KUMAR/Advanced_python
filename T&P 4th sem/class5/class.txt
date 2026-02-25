@@ -1,0 +1,7 @@
+Aaj hum padhenge Python wale Stringgggg............
+-> String is nothing but collection of characters
+-> Strings are immutable
+-> Multi line string daal sakte hai by using tripple quote (""" """)
+-> we can concatinate, iterate, find length, check if equal by == , find membership and many mre within Strings
+
+

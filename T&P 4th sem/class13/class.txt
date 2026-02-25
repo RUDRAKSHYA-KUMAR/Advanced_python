@@ -1,0 +1,9 @@
+homework- 
+    student course attendance and management system banana hai....
+    take empty dictionary
+    list, set, tuple, 
+    add student, add course, mark attemdence, enroll student, view student report,
+    drop course, assign grade, course wise report, exit
+    
+format for google colab-
+    rollno,section,name
