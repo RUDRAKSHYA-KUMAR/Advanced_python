@@ -1,4 +1,4 @@
-# Custom Exceptions
+
 class OutOfStockError(Exception):
     pass
 
@@ -13,7 +13,7 @@ class Inventory:
     def __init__(self):
         self.products = {}
 
-    # Add Product
+    
     def add_product(self, pid, name, quantity):
         try:
             if pid in self.products:
@@ -25,7 +25,7 @@ class Inventory:
         except DuplicateProductError as e:
             print("Error:", e)
 
-    # Sell Product
+
     def sell_product(self, pid, qty):
         try:
             if pid not in self.products:
@@ -40,14 +40,14 @@ class Inventory:
         except (InvalidProductIDError, OutOfStockError) as e:
             print("Error:", e)
 
-    # Display Inventory
+    
     def display(self):
         print("\nInventory List:")
         for pid, data in self.products.items():
             print(pid, "-", data["name"], "- Stock:", data["quantity"])
 
 
-# Main Program
+
 inv = Inventory()
 
 while True:
@@ -77,4 +77,5 @@ while True:
         break
 
     else:
+
         print("Invalid choice!")
