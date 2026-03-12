@@ -8,13 +8,13 @@ class Bank:
             1003: 12000
         }
 
-    # Display Accounts
+    
     def show_accounts(self):
         print("\nAccount Details:")
         for acc, bal in self.accounts.items():
             print(f"Account {acc} : Balance = {bal}")
 
-    # Transfer Money
+    
     def transfer(self, sender, receiver, amount):
         try:
             start = time.time()
@@ -23,18 +23,18 @@ class Bank:
             if sender not in self.accounts or receiver not in self.accounts:
                 raise Exception("Incorrect account number!")
 
-            # Simulate processing delay
+            
             time.sleep(2)
 
-            # Transaction timeout check
+        
             if time.time() - start > 5:
                 raise TimeoutError("Transaction timed out!")
 
-            # Overdraft check
+            
             if self.accounts[sender] < amount:
                 raise Exception("Overdraft error! Insufficient balance.")
 
-            # Perform transaction
+            
             self.accounts[sender] -= amount
             self.accounts[receiver] += amount
 
@@ -47,7 +47,7 @@ class Bank:
             print("Error:", e)
 
 
-# Main Program
+
 bank = Bank()
 
 while True:
@@ -76,4 +76,5 @@ while True:
         break
 
     else:
+
         print("Invalid choice!")
