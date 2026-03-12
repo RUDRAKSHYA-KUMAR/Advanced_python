@@ -2,7 +2,7 @@ class ContactBook:
     def __init__(self):
         self.contacts = {}
 
-    # Add Contact
+    
     def add_contact(self, name, phone):
         try:
             if not name or not phone:
@@ -20,7 +20,7 @@ class ContactBook:
         except Exception as e:
             print("Error:", e)
 
-    # Edit Contact
+    
     def edit_contact(self, name, new_phone):
         try:
             if name not in self.contacts:
@@ -35,7 +35,7 @@ class ContactBook:
         except Exception as e:
             print("Error:", e)
 
-    # Search Contact
+    
     def search_contact(self, name):
         try:
             if name not in self.contacts:
@@ -46,7 +46,7 @@ class ContactBook:
         except Exception as e:
             print("Error:", e)
 
-    # Display Contacts
+    
     def display_contacts(self):
         if not self.contacts:
             print("Contact book is empty")
@@ -55,7 +55,7 @@ class ContactBook:
                 print(name, ":", phone)
 
 
-# Main Program
+
 book = ContactBook()
 
 while True:
@@ -89,4 +89,5 @@ while True:
         break
 
     else:
+
         print("Invalid choice!")
