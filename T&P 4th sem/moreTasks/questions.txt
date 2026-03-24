@@ -1,0 +1,300 @@
+Advanced Python - Detailed Practice Set 
+SECTION A: MCQs 
+1. What will be the output? 
+x = [1,2,3] 
+print(x * 2) 
+a) [1,2,3,1,2,3] (Answer)
+b) Error 
+c) [2,4,6] 
+d) None 
+2. What is the output? 
+print(bool("")) 
+a) True 
+b) False  (Answer)
+c) Error 
+d) None 
+3. Which is mutable? 
+a) tuple 
+b) string 
+c) list   (Answer)
+d) int 
+4. What will be output? 
+print(10 == 10.0) 
+a) True   (Answer)
+b) False   
+SECTION B: Output Prediction 
+5.  
+a = [1,2,3] 
+b = a 
+b.append(4) 
+print(a) 
+ANSWER-
+[1, 2, 3, 4]
+
+6. 
+def func(x=[]): 
+x.append(1) 
+return x 
+print(func()) 
+print(func()) 
+ANSWER-
+[1]
+[1, 1]
+
+
+7. 
+for i in range(5): 
+if i == 3: 
+break 
+print(i) 
+ANSWER-
+0
+1
+2
+
+
+8. 
+try: 
+    print(10/0) 
+except: 
+    print("Error") 
+finally: 
+    print("Done") 
+ANSWER-
+Error
+Done
+
+SECTION C: Coding Questions 
+9. Write a program to: - Take input string - Count vowels and consonants 
+ANSWER-
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    vcount = 0
+    ccount=0
+    for char in text:
+        if char in vowels:
+            vcount += 1
+        else:
+            ccount+=1
+    print("Total no of vowel are: ",vcount)
+    print("Total number of consonent are: ",ccount)
+
+str1=input("Enter a text to count number of vowels and number of consonents in it")
+count_vowels(str1)
+
+10. Write a program to: - Read a file - Count number of lines, words and characters 
+11. Write a program: - Create a class BankAccount - Methods: deposit, withdraw, check balance 
+ANSWER-
+
+class BankAccount:
+    amount=5000
+    def deposit(amt):
+        this.amt=amt
+        amount+=amt
+        print("Current total amount in the account is ",amount)
+    def withdraw(amt):
+        if amt>amount:
+            print("Insufficient money to withdraw")
+        else:
+            amount-=amt
+            print("Current total amount in the account is ",amount)
+
+    def check_bal:
+        print("The current available balance is ", amount)
+
+12. Write a program: - Accept list of numbers - Remove duplicates 
+- Sort it without using sort() 
+ANSWER-
+
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+unique_numbers = []
+for num in numbers:
+    if num not in unique_numbers:
+        unique_numbers.append(num)
+n = len(unique_numbers)
+
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if unique_numbers[j] > unique_numbers[j + 1]:
+            # Swap
+            temp = unique_numbers[j]
+            unique_numbers[j] = unique_numbers[j + 1]
+            unique_numbers[j + 1] = temp
+
+13. Write a program using lambda + map + filter: - Square only even numbers from list 
+ANSWER-
+
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+
+result = list(
+    map(lambda x: x**2, 
+        filter(lambda x: x % 2 == 0, numbers))
+)
+print("Squared even numbers:", result)
+
+
+SECTION D: Advanced / Thinking 
+16. Write a program: - Simulate login system - Use file to store username/password 
+ANSWER-
+try:
+    choice = input("Do you want to Register (R) or Login (L)? ").lower()
+
+    if choice == 'r':
+        username = input("Enter new username: ")
+        password = input("Enter new password: ")
+
+        # Save to file
+        with open(FILE_NAME, "a") as f:
+            f.write(username + "," + password + "\n")
+
+        print("Registration Successful!")
+
+    elif choice == 'l':
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        found = False
+
+        
+        with open(FILE_NAME, "r") as f:
+            for line in f:
+                user, pwd = line.strip().split(",")
+                if user == username and pwd == password:
+                    found = True
+                    break
+
+        if found:
+            print("Login Successful!")
+        else:
+            print("Invalid Username or Password!")
+
+    else:
+        print("Invalid choice!")
+
+except FileNotFoundError:
+    print("Error: User file not found. Please register first.")
+17. Exception Handling: - Create custom exception "InvalidAgeError" - Raise error if age < 18
+ANSWER-
+def check_age(age):
+    try:
+        if age<18:
+            raise InvalidAgeError("Age is under 18")
+        else:
+            print("Eligible for voting")
+    except:
+        print("Runtime error aagya sir")
+    finally:
+        print("Done")
+
+age=int(input("Enter the age of the person"))
+check_age(age)
+
+SECTION E: GUI + Database Based 
+18. Create a Tkinter form: - Name input - Submit button - Show entered name
+ANSWER-
+import tkinter as tk
+
+def submit_name():
+    name = entry.get()  # Get text from input field
+    label_result.config(text="Hello, " + name)  # Display it
+
+root = tk.Tk()
+root.title("Simple Form")
+root.geometry("300x200")
+
+label = tk.Label(root, text="Enter your name:")
+label.pack(pady=10)
+
+entry = tk.Entry(root)
+entry.pack(pady=5)
+
+button = tk.Button(root, text="Submit", command=submit_name)
+button.pack(pady=10)
+
+label_result = tk.Label(root, text="")
+label_result.pack(pady=10)
+
+root.mainloop()
+
+
+19. Python + SQL: - Connect database - Create table Student 
+- Insert 3 records - Fetch and display all 
+ANSWER-
+import mysql.connector
+
+
+conn = mysql.connector.connect(
+    user="Rudra",
+    password="Kum@rfamily9",
+    host="localhost",
+    port=3306,
+    database="giet"
+
+)
+
+cursor = conn.cursor()
+
+cursor.execute("SHOW DATABASES")
+for x in cursor:
+    print(x)
+
+cursor.execute("USE giet")
+cursor.execute("select * from students")
+cursor.execute("insert into students values('Harish','Odisha', 35000.00,'M')")
+cursor.execute("insert into students values('Harshita','China', 67000.00,'F')")
+cursor.execute("insert into students values('Harshvardhan','Bihar', 42000.00,'M')")
+for x in cursor:
+    print(x)
+
+20. Build mini project: 
+STUDENT MANAGEMENT SYSTEM 
+Features: - Add student - View student - Delete student - Store data in file or database 
+ANSWER-
+students = {}
+
+while True:
+    print("\n--- STUDENT MANAGEMENT SYSTEM ---")
+    print("1. Add Student")
+    print("2. View Students")
+    print("3. Delete Student")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+    if choice == "1":
+        sid = input("Enter student ID: ")
+        name = input("Enter name: ")
+        age = input("Enter age: ")
+        course = input("Enter course: ")
+
+        students[sid] = {
+            "name": name,
+            "age": age,
+            "course": course
+        }
+
+        print(" Student added!")
+
+    
+    elif choice == "2":
+        if not students:
+            print("No students found")
+        else:
+            for sid, data in students.items():
+                print(f"ID: {sid} | Name: {data['name']} | Age: {data['age']} | Course: {data['course']}")
+
+    elif choice == "3":
+        sid = input("Enter student ID to delete: ")
+
+        if sid in students:
+            del students[sid]
+            print(" Student deleted!")
+        else:
+            print(" Student not found")
+
+
+    elif choice == "4":
+        print(" Exiting...")
+        break
+
+    else:
+        print("Invalid choice")
